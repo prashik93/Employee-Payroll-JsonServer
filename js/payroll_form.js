@@ -43,13 +43,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 // Day44_UC 3
-const save = () => {
-    try{
-        let employeePayrollData = createEmployeePayroll();
-    }catch (e) {
-        rerurn;
-    }
-}
 
 const createEmployeePayroll = () => {
     let employeePayrollData = new EmployeePayrollData();
@@ -88,4 +81,25 @@ const getInputValueById = (id) => {
 const geteInputElementValue = (id) => {
     let value = getElementById(id).value;
     return value;
+}
+
+// Day44_UC 4
+const save = () => {
+    try{
+        let employeePayrollData = createEmployeePayroll();
+        createAndUpdateStorate(employeePayrollData);
+    }catch(e) {
+        return;
+    }
+}
+
+function createAndUpdateStorate(employeePayrollData) {
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+
+    if(employeePayrollList != undefined) {
+        employeePayrollList.push(employeePayrollData);
+    } else {
+        employeePayrollList = [employeePayrollData]
+    }
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
 }
