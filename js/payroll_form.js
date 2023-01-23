@@ -1,4 +1,4 @@
-// Day-43_UC 4
+// Day43_UC 4
 
 const salary = document.querySelector('#salary');
 const output = document.querySelector('.salary-output');
@@ -7,7 +7,7 @@ salary.addEventListener('input', function() {
     output.textContent = salary.value;
 });
 
-// Day_43_UC 7
+// Day43_UC 7
 const text = document.querySelector('#name');
 const textError = document.querySelector('.text-error');
 text.addEventListener('input', function() {
@@ -16,7 +16,7 @@ text.addEventListener('input', function() {
     else textError.textContent = "Name is Incorrect"
 });
 
-// Day_44_UC 2
+// Day44_UC 2
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const name = document.querySelector('#name');
@@ -41,3 +41,51 @@ window.addEventListener('DOMContentLoaded', (event) => {
         output.textContent = salary.value;
     });
 });
+
+// Day44_UC 3
+const save = () => {
+    try{
+        let employeePayrollData = createEmployeePayroll();
+    }catch (e) {
+        rerurn;
+    }
+}
+
+const createEmployeePayroll = () => {
+    let employeePayrollData = new EmployeePayrollData();
+    try{
+        employeePayrollData.name = getInputValueById('#name');
+    }catch(e) {
+        setTextValue('.text-error', e);
+        throw e;
+    }
+    employeePayrollData.profilePic = getSelectedValues('[name=profile]').pop();
+    employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
+    employeePayrollData.department = getSelectedValues('[name=department]');
+    employeePayrollData.salary = getInputValueById('#salary');
+    employeePayrollData.note = getInputValueById('#notes');
+    let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + 
+               getInputValueById('#year');
+    employeePayrollData.date = Date.parse(date);
+    alert(employeePayrollData.toString());
+    return employeePayrollData;
+}
+
+const getSelectedValues = (propertyValue) => {
+    let allItems = document.querySelectorAll(propertyValue);
+    let selItems = [];
+    allItems.forEach(item => {
+        if(item.checked) selItems.push(item.value);
+    });
+    return selItems;
+}
+
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
+
+const geteInputElementValue = (id) => {
+    let value = getElementById(id).value;
+    return value;
+}
