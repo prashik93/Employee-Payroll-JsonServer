@@ -33,36 +33,14 @@
         <img id="plus-image" src="../assets/icons/add-24px.png" alt="Missing">Add User
       </a>
     </div> <!-- header-content  -->
-
-    <table id="display" class="table">
-        <!-- UC 3 -->
-        <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Department</th>
-            <th>Salary</th>
-            <th>Start Date</th>
-            <th>Actions</th>
-        </tr>
-        <tr>
-            <td><img class="profile" alt="" src="../assets/profile-images/Ellipse 1.jpg"></td>
-            <td>Prashik Kamble</td>
-            <td>Male</td>
-            <td>
-                <div class="dept-label">HR</div>
-                <div class="dept-label">Finance</div>
-            </td>
-            <td>3000000</td>
-            <td>1 Nov 2020</td>
-            <td>
-                <img id="1" class="edit-delete" onclick="remove(this)" alt="delete"
-                    src="../assets/icons/delete-black-18dp.png">
-                <img id="1" class="edit-delete" alt="edit" onclick="update(this)"
-                    src="../assets/icons/create-black-18dp.png">
-            </td>
-        </tr>
-      </table>
-  </div>
+    <div class="table-main">
+        <table id="table-display" class="table">
+        </table> 
+    </div> <!-- table-main -->
+  </div> <!-- main-content -->
+  <script src="../js/home.js"></script>
+  <script src="../js/utility.js"></script>
+  <script src="../js/site_properties.js"></script>
+  <script src="../js/EmployeePayroll.js"></script>
 </body>
 </html>
