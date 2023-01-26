@@ -1,21 +1,3 @@
-// Day43_UC 4
-
-const salary = document.querySelector('#salary');
-const output = document.querySelector('.salary-output');
-output.textContent = salary.value;
-salary.addEventListener('input', function() {
-    output.textContent = salary.value;
-});
-
-// Day43_UC 7
-const text = document.querySelector('#name');
-const textError = document.querySelector('.text-error');
-text.addEventListener('input', function() {
-    let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
-    if(nameRegex.test(text.value)) textError.textContent = "";
-    else textError.textContent = "Name is Incorrect"
-});
-
 // Day44_UC 2
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -59,7 +41,8 @@ const createEmployeePayroll = () => {
     employeePayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#day') + " " + getInputValueById('#month') + " " + 
                getInputValueById('#year');
-    employeePayrollData.date = Date.parse(date);
+    employeePayrollData.startDate = date;
+    
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
