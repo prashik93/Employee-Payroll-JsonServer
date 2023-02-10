@@ -38,11 +38,18 @@ class EmployeePayrollData {
 
     get startDate() { return this._startDate; }
     set startDate(startDate) {
+        let now = new Date();
+        if(startDate > now) throw 'Start Date is a Future Date!';
+        var timeDiff = Math.abs(now.getTime() - startDate.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        if(diffDays  > 30) {
+            throw 'Start Date is beyond 30 Days!';
+        }
         this._startDate = startDate;
     }
 
     toString() {
-        return "name='" + this.name + ", gender='" + this.gender +
+        return "id=" + this.id + "name='" + this.name + ", gender='" + this.gender +
                ", profilePic='" + this.profilePic + ", department=" + this.department +
                ", salary=" + this.salary + ", startDate=" + this.startDate + ", note=" + this.note;
     }
